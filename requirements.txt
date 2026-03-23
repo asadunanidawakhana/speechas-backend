@@ -3,4 +3,3 @@ uvicorn
 edge-tts
 pydub
 python-multipart
-mangum

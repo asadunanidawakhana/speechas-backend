@@ -7,7 +7,7 @@ import asyncio
 import os
 import uuid
 import shutil
-from mangum import Mangum
+import shutil
 
 # Try to import pydub for silence removal
 try:
@@ -94,4 +94,7 @@ async def generate_speech(req: TTSRequest):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-handler = Mangum(app)
+# For local running
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
